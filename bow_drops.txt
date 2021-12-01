@@ -1,0 +1,63 @@
+
+/Arrow Cluster
+type=entity,ID=Arrow,pos=#bowPos,NBTTag=(Motion=#bowMotion(1.0,5.0)),amount=20@luck=1
+
+/Arrow Stream
+type=entity,ID=Arrow,pos=#bowPos,NBTTag=(Motion=#bowMotion),amount=30,delay=#rand(0.0,3.0)@luck=1
+
+/Sword
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=diamond_sword),damage=10.0)@luck=2
+
+/Egg
+type=entity,ID=ThrownEgg,pos=#bowPos,NBTTag=(Motion=#bowMotion)@luck=0
+
+/Meteorite
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=diamond_ore),trail=(frequency=0.1,drops=["type=block,ID=tnt,delay=0.4","type=block,ID=diamond_ore,meta=1,delay=0.4@chance=0.3"]),impact=["group(type=explosion,damage=4,fire=true;type=structure,ID=meteor,delay=0.4)"])@chance=0.5@luck=2
+
+/TNT
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=tnt),trail=(frequency=0.2,drops=["type=particle,ID=smoke,posY=#bExactPosY+0.4)"]),impact=["group(type=difficulty,ID=hard;type=explosion,damage=4)"])@luck=2
+
+/Pickaxe Hole
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=diamond_pickaxe),trail=(frequency=0.5,drops=["type=particle,ID=blockcrack_3"]),impact=["group(type=structure,ID=drill_hole,posY=#bPosY-1;type=particle,ID=blockcrack_3,posY=#bExactPosY-7,size=(120.0,10.0,120.0),particleAmount=2000;type=sound,ID=dig.gravel,volume=2.0)"])@luck=2
+
+/Water/Lava Buckets
+group:1:(type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=water_bucket),trail=(frequency=0.5,drops=["type=particle,ID=splash"]),impact=["type=block,ID=flowing_water"]);type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=lava_bucket),trail=(frequency=0.5,drops=["type=particle,ID=smoke,posY=#bExactPosY+0.4"]),impact=["type=block,ID=flowing_lava"]))@luck=2
+
+/Charged Creeper
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=skull,Damage=4),impact=["group(type=difficulty,ID=hard;type=entity,ID=Creeper;type=entity,ID=LightningBolt)"])@luck=2
+
+/Knockback
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=feather),impact=["group(type=effect,ID=special_knockback,power=120.5,range=4,delay=0.1;type=particle,ID=explode,size=(1.5,1.0,1.5),particleAmount=500)"])@luck=2
+
+/Potions
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion(1.0,2.0),item=(id=potion,Damage=#randList(4,8,10,12)+16384),impact=["group(type=effect,ID=#randList(1,5,8),range=4,amplifier=#rand(20,30),duration=30;type=particle,ID=splashpotion,damage=#randList(4,8,10,12)+8192)"]),amount=#rand(7,10)@luck=2
+
+/Mobs
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion(1.0,2.0),item=(id=spawn_egg,Damage=#randList(54,51,52)),impact=["group(type=difficulty,ID=hard;type=entity,ID=#randList(Creeper,Skeleton,Creeper),posOffset=#circleOffset(0,2))"]),amount=#rand(7,10)@luck=2
+
+/Diamonds
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=diamond_ore),trail=(frequency=0.5,drops=["type=particle,ID=lava"]),impact=["group(type=block,ID=diamond_ore,posOffset=#circleOffset(0,3),amount=50;type=block,ID=diamond_ore)"])@luck=2
+
+/Spider Web
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=web),impact=["type=fill,ID=web,size=(10,10,10),posOffset=(-1,0,-1)"])@luck=2
+
+/golem
+type=entity,VillagerGolem,amount=13@luck=2
+
+/arrow of xp
+group(type=entity,ID=Arrow,NBTTag=(Motion=#randLaunchMotion(0.6,15)),amount=64;type=entity,ID=ThrownExpBottle,Motion=#randLaunchMotion(0.7,18)),amount=44)@luck=0
+
+/house
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=stone),trail=(frequency=0.5,drops=["type=particle,ID=blockcrack_3"]),impact=["group(type=structure,ID=house,posY=#bPosY-1;type=particle,ID=blockcrack_3,posY=#bExactPosY-7,size=(120.0,10.0,120.0),particleAmount=2000;type=sound,ID=dig.gravel,volume=2.0)"])@luck=2
+
+/LuckyBlock
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=lucky:lucky_block_creeper),trail=(frequency=0.5,drops=["type=particle,ID=lava"]),impact=["group(type=block,ID=lucky:lucky_block_creeper,posOffset=#circleOffset(0,3),amount=10;type=block,ID=lucky:lucky_block_creeper)"])@luck=2
+
+/TntBlock
+type=entity,ID=LuckyProjectile,pos=#bowPos,NBTTag=(Motion=#bowMotion,item=(id=tnt),impact=["type=fill,ID=tnt,size=(10,10,10),posOffset=(-1,0,-1)"])@luck=2
+
+/falling tnt
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=tnt);type=particle,ID=reddust,size=(1,2,1),particleAmount=500,delay=2;type=sound,ID=tile.piston.in,delay=2)@luck=0
+
+/////////////Normal Arrow
+type=entity,ID=Arrow,pos=#bowPos,NBTTag=(Motion=#bowMotion)@chance=20

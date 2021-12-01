@@ -1,0 +1,351 @@
+/////////////////////Items
+ID=dirt@luck=-1
+ID=sponge,damage=#rand(0,1)@luck=0
+ID=dropper,amount=#rand(5,20)@luck=0
+ID=gold_block,amount=#rand(8,10)@luck=1
+ID=cookie,amount=64@luck=0
+ID=diamond_block,amount=#rand(2,5)@luck=0
+ID=gunpowder,amount=#rand(5,8)@luck=0
+ID=emerald_block,amount=#rand(5,8)@luck=0
+ID=sponge@luck=0
+ID=tnt,amount=8@luck=1
+ID=obsidian,amount=14@luck=1
+ID=enchanting_table@luck=2
+ID=end_portal_frame,amount=#rand(10,11)@luck=2
+ID=dragon_egg@luck=1
+ID=ender_chest,amount=2@luck=0
+ID=beacon@luck=2
+ID=hay_block,amount=8@luck=0
+
+/golden apples
+group(ID=golden_apple,amount=#rand(2,4);ID=golden_apple,amount=#rand(1,2),damage=1)@luck=1
+
+/iron, gold, diamond, emerald, lapis with fireworks
+group(ID=iron_ingot,amount=#rand(8,16);ID=gold_ingot,amount=#rand(8,16);ID=diamond,amount=#rand(8,16);ID=emerald,amount=#rand(8,16);ID=dye,damage=4,amount=#rand(8,16);type=entity,ID=FireworksRocketEntity,NBTTag=(LifeTime=20,FireworksItem=(id=fireworks,tag=#randFireworksRocket)),amount=20,posOffset=#circleOffset(0,2))@luck=2
+
+/message with mushroom
+group(type=command,ID="/tell #pName Listen to me, #pName. You are in grave danger. You need to run. Now. Take this mushroom, it is your only hope.",commandSender="craftdiamonds";ID=red_mushroom,NBTTag=(display=(Name="$cOnly Hope")))@luck=-1
+
+/enchantment books
+ID=enchanted_book,NBTTag=(StoredEnchantments=#randEnchantment),amount=#rand(7,10)@luck=1
+
+/lucky drops
+group(ID=diamond_sword;ID=diamond_pickaxe;ID=diamond_axe;ID=diamond_sword;ID=diamond_hoe)@luck=1
+group(ID=golden_apple,amount=15;ID=cake,amount=12)@luck=2
+
+/ lucky items
+type=item,ID=lucky:creeper_lucky_sword@luck=1
+type=item,ID=lucky:creeper_lucky_bow@luck=1
+type=item,ID=lucky:creeper_lucky_potion,NBTTag=(Luck=#randList(100,-100)),amount=#rand(10,15)@luck=2
+group(type=item,ID=lucky:creeper_lucky_sword;type=item,ID=lucky:creeper_lucky_bow;type=item,ID=lucky:creeper_lucky_potion,NBTTag=(Luck=#randList(100,-100)),amount=#rand(10,15);type=entity,ID=FireworksRocketEntity,NBTTag=(LifeTime=20,FireworksItem=(id=fireworks,tag=#randFireworksRocket)),amount=20,posOffset=#circleOffset(0,2))@luck=2
+
+//////////////////////////Falling Blocks
+/Falling Sand Entities
+group(type=fill,ID=air,size=(1,51,1);type=entity,ID=FallingSand,NBTTag=(Block=diamond_block),posY=#bPosY+5;group(posY=#bPosY+10;posY=#bPosY+15;posY=#bPosY+20;posY=#bPosY+25;posY=#bPosY+30;posY=#bPosY+35;posY=#bPosY+40;posY=#bPosY+45;posY=#bPosY+50),type=entity,ID=FallingSand,NBTTag=(Block=diamond_block)@luck=0
+group(type=fill,ID=air,size=(1,51,1);type=entity,ID=FallingSand,NBTTag=(Block=emerald_block),posY=#bPosY+5;group(posY=#bPosY+10;posY=#bPosY+15;posY=#bPosY+20;posY=#bPosY+25;posY=#bPosY+30;posY=#bPosY+35;posY=#bPosY+40;posY=#bPosY+45;posY=#bPosY+50),type=entity,ID=FallingSand,NBTTag=(Block=emerald_block))@luck=-1
+group(type=fill,ID=air,size=(1,51,1);type=entity,ID=FallingSand,NBTTag=(Block=gold_block),posY=#bPosY+5;group(posY=#bPosY+10;posY=#bPosY+15;posY=#bPosY+20;posY=#bPosY+25;posY=#bPosY+30;posY=#bPosY+35;posY=#bPosY+40;posY=#bPosY+45;posY=#bPosY+50),type=entity,ID=FallingSand,NBTTag=(Block=gold_block))@luck=0
+group(type=fill,ID=air,size=(1,51,1);type=entity,ID=FallingSand,NBTTag=(Block=redstone_block),posY=#bPosY+5;group(posY=#bPosY+10;posY=#bPosY+15;posY=#bPosY+20;posY=#bPosY+25;posY=#bPosY+30;posY=#bPosY+35;posY=#bPosY+40;posY=#bPosY+45;posY=#bPosY+50),type=entity,ID=FallingSand,NBTTag=(Block=tnt))@luck=-2
+group(type=fill,ID=air,size=(1,51,1);type=entity,ID=FallingSand,NBTTag=(Block=lucky:lucky_block_creeper),posY=#bPosY+5;group(posY=#bPosY+10;posY=#bPosY+15;posY=#bPosY+20;posY=#bPosY+25;posY=#bPosY+30;posY=#bPosY+35;posY=#bPosY+40;posY=#bPosY+45;posY=#bPosY+50),type=entity,ID=FallingSand,NBTTag=(Block=lucky:lucky_block_creeper))@luck=0
+
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=iron_block);type=particle,ID=largesmoke,size=(1,2,1),particleAmount=500;type=sound,ID=random.fizz)@luck=0
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=gold_block);type=particle,ID=flame,size=(1,2,1),particleAmount=500;type=sound,ID=item.fireCharge.use)@luck=0
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=diamond_block);type=entity,ID=LightningBolt)@luck=1
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=emerald_block);type=particle,ID=happyVillager,size=(1,2,1),particleAmount=500;type=sound,ID=dig.grass)@luck=0
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=lapis_block);type=particle,ID=splash,size=(1,2,1),particleAmount=1000;type=sound,ID=game.neutral.swim.splash)@luck=0
+
+/activating blocks
+group(type=entity,ID=FallingSand,NBTTag=(Block=lucky:lucky_block_creeper),posOffsetX=1,posOffsetY=5;type=entity,ID=FallingSand,NBTTag=(Block=lucky:lucky_block_creeper),posOffsetX=-1,posOffsetY=5;type=entity,ID=FallingSand,NBTTag=(Block=redstone_block),posOffsetX=1,posOffsetY=10;type=entity,ID=FallingSand,NBTTag=(Block=redstone_block),posOffsetX=-1,posOffsetY=10)@luck=1
+
+/torch with fence
+group(type=entity,ID=FallingSand,NBTTag=(Block=fence),posOffsetX=1,posOffsetY=5;type=entity,ID=FallingSand,NBTTag=(Block=fence),posOffsetX=-1,posOffsetY=5;type=entity,ID=FallingSand,NBTTag=(Block=torch),posOffsetX=1,posOffsetY=10;type=entity,ID=FallingSand,NBTTag=(Block=torch),posOffsetX=-1,posOffsetY=10)@luck=1
+
+/Random Bedrock
+group(type=fill,ID=air,size=(1,8,1);type=entity,ID=FallingSand,posY=#bPosY+7,NBTTag=(Block=bedrock))@luck=0
+
+/////////////////////////Cool Enchanted Items
+type=item,ID=stick,NBTTag=(ench=[(id=19,lvl=1000)],display=(Name=$9$lLaunching Stick))@luck=0
+
+type=item,ID=diamond_sword,NBTTag=(ench=[(id=16,lvl=-1000)],display=(Name=$9$lSomething is not right...?))@luck=0
+
+type=item,ID=red_flower,NBTTag=(ench=#luckySwordEnchantments,display=(Name="Lucky Flower"))@luck=-1
+
+type=item,ID=iron_hoe,NBTTag=(ench=#luckySwordEnchantments,display=(Name="Battle Hoe"))@luck=1
+
+/////////////////////////////////Explosions
+/explosions
+type=explosion,radius=10,fire=false@luck=0
+type=explosion,radius=20,fire=false@luck=-1
+type=explosion,radius=50,fire=false@luck=-2
+
+////////////////////////////Traders
+/lucky villagers
+type=entity,ID=Villager,NBTTag=(Offers=(Recipes=[(buy=(id=diamond,Count=#rand(20,25)),sell=(id=diamond_sword,Count=1,tag=(ench=[(id=16,lvl=10),(id=20,lvl=10),(id=34,lvl=10)],display=(Name="Illegal Sword"))),maxUses=160),(buy=(id=diamond,Count=#rand(20,25)),sell=(id=bow,Count=1,tag=(ench=[(id=48,lvl=10),(id=51,lvl=10)],display=(Name="Illegal Bow"))),maxUses=30),(buy=(id=diamond,Count=#rand(1,2)),sell=(id=fishing_rod,Count=3,tag=(ench=#luckyFishingRodEnchantments,display=(Name="Just a Rod"))),maxUses=1)]),CustomName="Illegal Arms Dealer",CustomNameVisible=true)@luck=0
+type=entity,ID=Villager,NBTTag=(Offers=(Recipes=[(buy=(id=diamond,Count=#rand(1,9)),sell=(id=diamond_helmet,Count=1,tag=(ench=#luckyHelmetEnchantments,display=(Name="#pName Helmet"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,9)),sell=(id=diamond_chestplate,Count=1,tag=(ench=#luckyChestplateEnchantments,display=(Name="#pName Chestplate"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,9)),sell=(id=diamond_leggings,Count=1,tag=(ench=#luckyLeggingsEnchantments,display=(Name="#pName Leggings"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,7)),sell=(id=diamond_boots,Count=1,tag=(ench=#luckyBootsEnchantments,display=(Name="#pName Boots"))),maxUses=1)]),CustomName="Custom Tailor",CustomNameVisible=true)@luck=0
+type=entity,ID=Villager,NBTTag=(Offers=(Recipes=[(buy=(id=diamond,Count=#rand(10,15)),sell=(id=dirt,Count=1,tag=(ench=#luckySwordEnchantments,display=(Name="Lucky Dirt"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,2)),sell=(id=beacon,Count=1,tag=(ench=#luckySwordEnchantments,display=(Name="Knock-off Beacon"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,2)),sell=(id=diamond_sword,Count=1,tag=(ench=#luckySwordEnchantments,display=(Name="Just a Sword"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,2)),sell=(id=blaze_rod,Count=1,tag=(ench=#luckySwordEnchantments,display=(Name="Pointy Rod"))),maxUses=1)]),CustomName="Strange Trader",CustomNameVisible=true)@luck=0
+type=entity,ID=Villager,NBTTag=(Offers=(Recipes=[(buy=(id=emerald,Count=#rand(1,5)),sell=(id=diamond,Count=9,tag=(ench=#luckySwordEnchantments,display=(Name="Lucky Diamonds"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,2)),sell=(id=golden_apple,Count=30,tag=(ench=#luckySwordEnchantments,display=(Name="Glowing Apples"))),maxUses=1),(buy=(id=diamond,Count=#rand(1,2)),sell=(id=tnt,Count=3,tag=(ench=#luckySwordEnchantments,display=(Name="Shiny TnT"))),maxUses=1),(buy=(id=dirt,Count=#rand(1,2)),sell=(id=diamond,Count=9,tag=(ench=#luckySwordEnchantments,display=(Name="Dirt to Diamonds"))),maxUses=1)]),CustomName="Strange Trader",CustomNameVisible=true)@luck=0
+
+/////////////////////////////////////////Entities
+group(type=entity,ID=Zombie,amount=10,NBTTag=(Equipment=[(id=diamond_sword,Count=1,Damage=0,tag=(ench=#luckySwordEnchantments)),(id=diamond_helmet,Count=1,Damage=0,tag=(ench=#luckyHelmetEnchantments)),(id=diamond_chestplate,Count=1,Damage=0,tag=(ench=#luckyChestplateEnchantments)),(id=diamond_leggings,Count=1,Damage=0,tag=(ench=#luckyLeggingsEnchantments)),(id=diamond_boots,Count=1,Damage=0,tag=(ench=#luckyBootsEnchantments))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],CustomName="Herobrines Army",CustomNameVisible=true))@luck=-2
+
+type=entity,ID=Ozelot,NBTTag=(Riding=(id=Creeper))@luck=-1
+
+type=entity,ID=Giant,NBTTag=(Riding=(id=Zombie))@luck=-1
+
+type=entity,ID=Blaze,NBTTag=(Riding=(id=Ozelot))@luck=0
+
+type=entity,ID=Minecart,NBTTag=(Riding=(id=Cow))@luck=0
+
+type=entity,ID=Minecart,NBTTag=(Riding=(id=Blaze))@luck=0
+
+type=entity,ID=Minecart,NBTTag=(Riding=(id=Ghast))@luck=0
+
+type=entity,ID=Minecart,NBTTag=(Riding=(id=Creeper))@luck=0
+
+type=entity,ID=VillagerGolem,NBTTag=(Riding=(id=Zombie))@luck=0
+
+type=entity,ID=Minecart,NBTTag=(Riding=(id=EnderDragon))@luck=0
+
+group(type=entity,ID=Pig,amount=3,posOffset=#circleOffset(1,5); \
+type=entity,ID=Villager,amount=3,posOffset=#circleOffset(1,5); \
+type=entity,ID=Creeper,amount=3,posOffset=#circleOffset(1,5); \
+type=entity,ID=LightningBolt,amount=10,posOffset=#circleOffset(1,5))@luck=-1
+
+type=entity,ID=Chicken,NBTTag=(CustomName="Bobs Pet",CustomNameVisible=true)@luck=-2
+
+type=entity,ID=Silverfish,NBTTag=(CustomName="Every Day i wiggle",CustomNameVisible=true)@luck=-2
+
+type=entity,ID=Creeper,amount=15,posOffset=#circleOffset(1,2))@luck=-2
+
+type=entity,ID=Pig,amount=10,posOffset=#circleOffset(15,20))@luck=0
+
+/Bob
+group(type=difficulty,ID=hard;type=entity,ID=Zombie,NBTTag=(Equipment=[(id=diamond_sword,Count=1,tag=(ench=#luckySwordEnchantments)),(id=diamond_helmet,Count=1,tag=(ench=#luckyHelmetEnchantments)),(id=diamond_chestplate,Count=1,tag=(ench=#luckyChestplateEnchantments)),(id=diamond_leggings,Count=1,tag=(ench=#luckyLeggingsEnchantments)),(id=diamond_boots,Count=1,tag=(ench=#luckyBootsEnchantments))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],CustomName="Bob",CustomNameVisible=true))@luck=-2
+
+/baby you
+type=entity,ID=ArmorStand,NBTTag=(Small=true,NoBasePlate=true,ShowArms=true,Equipment=[(id=stone_pickaxe,Count=1),(id=leather_boots,Count=1,tag=(display=(color=#rand(0,16777215)))),(id=leather_leggings,Count=1,tag=(display=(color=#rand(0,16777215)))),(id=leather_chestplate,Count=1,tag=(display=(color=#rand(0,16777215)))),(id=skull,Damage=3,Count=1,tag=(SkullOwner=#pName))],Rotation=[#pYaw+180f,0f],CustomName="Baby #pName",CustomNameVisible=true)@luck=0
+
+/stacked blaze and minecarts
+type=entity,ID=Minecart,NBTTag=(Riding=(id=Minecart,Riding=(id=Minecart,Riding=(id=Minecrt,Riding=(id=Minecart,Riding=(id=Minecart,Riding=(id=Minecart,Riding=(id=Villager))))))))@luck=0
+
+/CJockey
+type=entity,ID=Creeper,NBTTag=(Riding=(id=Spider)),posOffset=#circleOffset(4),amount=#rand(5,10)@luck=-1
+
+/EJockey
+type=entity,ID=Enderman,NBTTag=(Riding=(id=Blaze))posOffset=#circleOffset(4),amount=#rand(5,10)@luck=-1
+
+/thrown exp bottles
+type=entity,ID=ThrownExpBottle,NBTTag=(Motion=#randLaunchMotion),amount=#rand(16,32)@luck=2
+
+/launched tnt
+type=entity,ID=PrimedTnt,NBTTag=(Fuse=50b,Motion=#randLaunchMotion),amount=15@luck=0
+
+/huge slime and magma cube
+group:1:(type=entity,ID=Slime,NBTTag=(Size=30);type=entity,ID=LavaSlime,NBTTag=(Size=30))@luck=-2
+
+/stacked creepers
+type=entity,ID=Creeper,posOffset=#circleOffset(1,2),amount=#rand(3,5),NBTTag=(Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper))))))))))))@luck=-1
+
+/stacked endermites
+type=entity,ID=Endermite,posOffset=#circleOffset(1,2),amount=#rand(3,5),NBTTag=(Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite,Riding=(id=Endermite))))))))))))@luck=-1
+
+/confused creepers
+type=entity,ID=Ozelot,posOffset=#circleOffset(1,2),NBTTag=(Riding=(id=Creeper)),amount=#rand(2,5)@luck=-1
+
+/ Lucky Overlord Alpha
+group(type=difficulty,ID=hard;type=entity,ID=Zombie,NBTTag=(Equipment=[(id=lucky:creeper_lucky_sword,Count=1,tag=(ench=#luckySwordEnchantments)),(id=diamond_helmet,Count=1,tag=(ench=#luckyHelmetEnchantments)),(id=diamond_chestplate,Count=1,tag=(ench=#luckyChestplateEnchantments)),(id=diamond_leggings,Count=1,tag=(ench=#luckyLeggingsEnchantments)),(id=diamond_boots,Count=1,tag=(ench=#luckyBootsEnchantments))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],CustomName="Creeper Overlord Alpha",CustomNameVisible=true))@luck=-2
+
+/ Lucky Over Lord Beta
+group(type=difficulty,ID=hard;type=entity,ID=Skeleton,NBTTag=(Equipment=[(id=lucky:creeper_lucky_bow,Count=1,tag=(ench=#luckyBowEnchantments)),(id=diamond_helmet,Count=1,tag=(ench=#luckyHelmetEnchantments)),(id=diamond_chestplate,Count=1,tag=(ench=#luckyChestplateEnchantments)),(id=diamond_leggings,Count=1,tag=(ench=#luckyLeggingsEnchantments)),(id=diamond_boots,Count=1,tag=(ench=#luckyBootsEnchantments))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],CustomName="Lucky Overlord Beta",CustomNameVisible=true))@luck=-2
+
+/ Lucky Overlords Omega
+group(type=difficulty,ID=hard;type=entity,ID=Giant,NBTTag=(Equipment=[(id=lucky:lucky_block_creeper,Count=1,tag=(ench=#luckySwordEnchantments)),(id=diamond_helmet,Count=1,tag=(ench=#luckyHelmetEnchantments)),(id=diamond_chestplate,Count=1,tag=(ench=#luckyChestplateEnchantments)),(id=diamond_leggings,Count=1,tag=(ench=#luckyLeggingsEnchantments)),(id=diamond_boots,Count=1,tag=(ench=#luckyBootsEnchantments))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],CustomName="Lucky Overlord Omega",CustomNameVisible=true))@luck=-2
+
+/craftdiamonds boss
+group(type=command,ID="/title @a title {text:\"WARNING\",color:cactus_green}";type=command,ID="/title @a subtitle {text:\"craftdiamonds has been summoned!\",color:red}";type=message,ID="$ecraftdiamonds joined the game";type=difficulty,ID=hard;type=entity,ID=Zombie,NBTTag=(Equipment=[(id=diamond_sword,Count=1,Damage=0,tag=(IsBaby=0b,display=(Name="$4craftdiamonds Sword",Lore=["It bears arcane markings."]),AttributeModifiers=[(Name="generic.attackDamage",UUIDLeast=187029,Amount=15,Operation=0,UUIDMost=33347,AttributeName="generic.attackDamage")],ench=[(id=20,lvl=5),(id=34,lvl=10)])),(id=diamond_boots,Count=1,Damage=0,tag=(display=(Name="$4craftdiamonds Boots",Lore=["They bear arcane markings."]),ench=[(id=0,lvl=6),(id=34,lvl=10)])),(id=diamond_leggings,Count=1,Damage=0,tag=(display=(Name="$4craftdiamonds Leggings",Lore=["They bear arcane markings."]),ench=[(id=0,lvl=6),(id=34,lvl=10)])),(id=diamond_chestplate,Count=1,Damage=0,tag=(display=(Name="$4craftdiamonds Chestplate",Lore=["It bears arcane markings."]),ench=[(id=0,lvl=6),(id=34,lvl=10)])),(id=skull,Damage=3,Count=1,tag=(SkullOwner="craftdiamonds",display=(Name="$4$l$ocraftdiamonds Skull",Lore=["Skull of the $4$oForbidden One"]),ench=[(id=0,lvl=5),(id=1,lvl=5),(id=3,lvl=5),(id=4,lvl=5),(id=5,lvl=3),(id=6,lvl=1)]))],DropChances=[0.8F,0.3F,0.3F,0.3F,2.0F],PersistanceRequired=1b,CanBreakDoors=1b,IsVillager=0b,CustomName="$c$l$ocraftdiamonds",CustomNameVisible=true,Attributes=[(Name=zombie.spawnReinforcements,Base=1.0F),(Name=generic.maxHealth,Base=500D),(Name=generic.knockbackResistance,Base=0.2F),(Name=generic.movementSpeed,Base=0.3F)],ActiveEffects=[(Id=12,Amplifier=2,Duration=999999),(Id=8,Amplifier=3,Duration=999999),(Id=10,Amplifier=1,Duration=999999),(Id=1,Amplifier=10,Duration=999999),(Id=13,Amplifier=1,Duration=999999)]))@luck=-1
+
+/"player"
+group(type=difficulty,ID=hard;type=entity,ID=Skeleton,NBTTag=(Silent=true,Equipment=[(id=stick,Count=1,Damage=0,tag=(ench=#luckySwordEnchantments,display=(Name="$7$lSurprisingly Sharp Stick"),AttributeModifiers=[(AttributeName=generic.attackDamage,Name="damage",Amount=3,Operation=0,UUIDLeast=1,UUIDMost=1)])),(id=leather_boots,Count=1,Damage=0,tag=(ench=#luckyBootsEnchantments,display=(color=#rand(0,16777215),Name="$7$l#pName's Stained Boots"))),(id=leather_chestplate,Count=1,Damage=0,tag=(ench=#luckyChestplateEnchantments,display=(color=#rand(0,16777215),Name="$7$l#pName's Stained Chestplate"))),(id=leather_leggings,Count=1,Damage=0,tag=(ench=#luckyLeggingsEnchantments,display=(color=#rand(0,16777215),Name="$7$l#pName's Stained Pants"))),(id=skull,Damage=3,Count=1,tag=(ench=#luckyHelmetEnchantments,SkullOwner=#pName))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],CustomName="#pName"))@luck=-1
+
+/ghostly horseman
+group(type=difficulty,ID=hard;type=command,ID="/playsound records.11 @a ~ ~ ~ 0.0001 2.0";type=command,delay=0.5,ID="/playsound records.11 @a ~ ~ ~ 0.0001 2.0";type=command,delay=1,ID="/playsound records.11 @a ~ ~ ~ 0.0001 2.0";type=command,delay=1.5,ID="/playsound records.13 @a ~ ~ ~ 2.0 2.0";type=entity,ID=Snowball,NBTTag=(CustomName="$f$lGhostly Horseman",CustomNameVisible=true,Riding=(id=Skeleton,CustomName="$f$lGhostly Horseman",Equipment=[(id=bow,Count=1,Damage=0,tag=(ench=#luckyBowEnchantments,display=(Name="$f$lGhostly Bow"))),(id=chainmail_helmet,Count=1,Damage=0,tag=(ench=#luckyHelmetEnchantments,display=(Name="$f$lGhostly Helmet"))),(id=chainmail_chestplate,Count=1,Damage=0,tag=(ench=#luckyChestplateEnchantments,display=(Name="$f$lGhostly Chestplate"))),(id=chainmail_leggings,Count=1,Damage=0,tag=(ench=#luckyLeggingsEnchantments,display=(Name="$f$lGhostly Pants"))),(id=chainmail_boots,Count=1,Damage=0,tag=(ench=#luckyBootsEnchantments,display=(Name="$f$lGhostly Boots")))],DropChances=[#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f,#randList(0,2)f],ActiveEffects=[(Id=14,Duration=100000,Amplifier=1,ShowParticles=false)],Riding=(id=EntityHorse,CustomName="$f$lGhostly Horse",Tame=true,Type=4,Riding=(id=Bat,Silent=true,ActiveEffects=[(Id=14,Duration=100000,Amplifier=1,ShowParticles=false)])))))@luck=-2
+
+/unbalanced slime stack
+type=entity,ID=Slime,NBTTag=(CustomName="$a$lSlime Stack",Size=7,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=6,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=5,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=4,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=3,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=2,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=1,Riding=(id=Slime,CustomName="$a$lSlime Stack",Size=0))))))))@luck=-1
+
+/unbalanced magma stack
+type=entity,ID=LavaSlime,NBTTag=(Size=7,CustomName="$6$lMagma Stack",Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=6,Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=5,Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=4,Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=3,Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=2,Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=1,Riding=(id=LavaSlime,CustomName="$6$lMagma Stack",Size=0))))))))@luck=-2
+d,ID="/say a big staircase!of lava!";type=entity,ID=FallingSand,NBTTag=(Block=lava);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(0,5,-1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-1,10,-1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-1,15,0);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-1,20,1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(0,25,1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(1,30,1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(1,35,0);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(1,40,-1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(1,50,-2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(0,55,-2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-1,60,-2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-2,65,-2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-2,70,-1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-2,75,0);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-2,80,1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-2,85,2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(-1,90,2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(0,95,2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(1,100,2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(2,105,2);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(2,110,1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(2,115,0);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(2,120,-1);type=entity,ID=FallingSand,NBTTag=(Block=lava),posOffset=(2,125,-2))@luck=-1
+
+/Flying Creeper
+type=entity,ID=Creeper,NBTTag=(Riding=(id="Bat",Silent=true,ActiveEffects=[(Id=14,Duration=10000,ShowParticles=false)])),posY=#bPosY+2@luck=0
+
+/Flying Creeper Dragon
+type=entity,ID=Creeper,NBTTag=(Riding=(id="EnderDragon",Silent=true,ActiveEffects=[(Id=14,Duration=10000,ShowParticles=false)])),posY=#bPosY+2@luck=0
+
+/save me
+type=entity,ID=PrimedTnt,NBTTag=(CustomName="$6$lSave Me",CustomNameVisible=true,Fuse=100,Riding=(id=Villager,CustomName="$6$lSave Me")))@luck=0
+
+/clever
+type=entity,ID=Villager,NBTTag=(CustomName="$6$lWhy did I not think of this before?",CustomNameVisible=true,Riding=(id=VillagerGolem,CustomName="$6$lWhy did i not think of this before")))@luck=0
+
+/loto giants
+type=entity,ID=Giant,NBTTag=(Riding=(id=Giant,Riding=(id=Giant,Riding=(id=Giant,Riding=(id=Giant,Riding=(id=Giant,Riding=(id=Giant,Riding=(id=Giant))))))))@luck=-1
+
+/loto creepers
+type=entity,ID=Creeper,NBTTag=(Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper,Riding=(id=Creeper))))))))@luck=0
+
+/loto endermen
+type=entity,ID=Enderman,NBTTag=(Riding=(id=Enderman,Riding=(id=Enderman,Riding=(id=Enderman,Riding=(id=Enderman,Riding=(id=Enderman,Riding=(id=Enderman,Riding=(id=Enderman))))))))@luck=0
+
+/loto ghasts
+type=entity,ID=Ghast,NBTTag=(Riding=(id=Ghast,Riding=(id=Ghast,Riding=(id=Ghast,Riding=(id=Ghast,Riding=(id=Ghast,Riding=(id=Ghast,Riding=(id=Ghast))))))))@luck=0
+
+/loto guardians
+type=entity,ID=Guardian,NBTTag=(Riding=(id=Guardian,Riding=(id=Guardian,Riding=(id=Guardian,Riding=(id=Guardian,Riding=(id=Guardian,Riding=(id=Guardian,Riding=(id=Guardian))))))))@luck=0
+
+/Creeper Invasion
+group(type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=3;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=5;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=17;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=26;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=36;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=46;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=58;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=69;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=79;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=88;type=entity,ID=Creeper,amount=5,posOffset=#circleOffset(2,35),delay=100;type=message, ID=Creeper Invasion)@luck=-2
+
+/Flying Creepers
+type=entity,ID=Creeper,NBTTag=(CustomName="$#randList(6,9,a,b,c,d,e)$lCreeper",CustomNameVisible=true,Value=#randList(5,20),Riding=(id=Bat,Silent=true,ActiveEffects=[(Id=14,Duration=100000,Amplifier=1,ShowParticles=false)])),amount=#rand(10,20),posOffset=#circleOffset(2,3),reinitialize=true@luck=-1
+
+/Stacked Chickens
+type=entity,ID=Chicken,posOffset=#circleOffset(1,2),amount=#rand(3,5),NBTTag=(Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken,Riding=(id=Chicken))))))))))))@luck=0
+
+/Friendly Creeper
+type=entity,ID=Creeper,NBTTag=(ExplosionRadius=0,Fuse=999999,CustomName="$aFriendly Creeper",CustomNameVisible=true))@luck=0
+
+////////////////////////////////////Structures
+/ wishing wells
+group(type=structure,ID=wishing_well;type=message,ID="A wishing well? Maybe you should throw in a Soul...";type=command,ID="/give #pName gun_powder 1 0 {display:{Name:\"$6Soul\"}}";type=block,ID=lucky:lucky_block_creeper,posY=#bPosY-3,NBTTag=(Drops=["group(type=message,ID=\"$bYour wish came true!\";type=block,ID=air,posY='#'bPosY+3;type=block,ID=beacon,posY='#'bPosY+2;type=entity,ID=FireworksRocketEntity,NBTTag=(LifeTime=20,FireworksItem=(id=fireworks,tag='#'randFireworksRocket)),amount=200,posY='#'bPosY+3,posOffset='#'circleOffset(2);ID=gold_ingot,amount=#rand(20,30),posY='#'bPosY+10,posOffset='#'circleOffset(2);ID=diamond,amount=#rand(32,48),posY='#'bPosY+10,posOffset='#'circleOffset(2);ID=emerald,amount=#rand(50,60),posY='#'bPosY+10,posOffset='#'circleOffset(2);ID=nether_star,amount=#rand(2,3),posY='#'bPosY+10,posOffset='#'circleOffset(2))"]))@luck=2
+group(type=structure,ID=wishing_well;type=message,ID="A wishing well? Maybe you should throw in a TNT...";type=command,ID="/give #pName tnt 1 0 {display:{Name:\"$6TNT\"}}";type=block,ID=lucky:lucky_block_creeper,posY=#bPosY-3,NBTTag=(Drops=["group(type=message,ID=\"$eYour wish came true! (If you like TNT)\";type=block,ID=air,posY='#'bPosY+3;type=block,ID=beacon,posY='#'bPosY+2;ID=tnt,amount=128,posY='#'bPosY+10,posOffset='#'circleOffset(2);ID=flint_and_steel,amount=6,posY='#'bPosY+10,posOffset='#'circleOffset(2);ID=sand,amount=32,posY='#'bPosY+10,posOffset='#'circleOffset(2))"]))@luck=0
+group(type=structure,ID=wishing_well;type=message,ID="A wishing well? Maybe you should throw in a Diamond...";type=command,ID="/give #pName diamond_ore 1 0 {display:{Name:\"$6Diamond\"}}";type=block,ID=lucky:lucky_block_creeper,posY=#bPosY-3,NBTTag=(Drops=["group(type=message,ID=\"$4Your TNT wish came true!\";type=block,ID=air,posY='#'bPosY+3;type=block,ID=beacon,posY='#'bPosY+2;type=entity,ID=PrimedTnt,NBTTag=(Fuse=50b,Motion='#'randLaunchMotion),posY='#'bPosY+7,amount=20)"]))@luck=-2
+
+/ traps
+type=structure,ID=anvil_trap,pos=#pPos,rotation=#pDirect@luck=-2
+type=structure,ID=lava_trap,pos=#pPos,rotation=#pDirect@luck=-2
+type=structure,ID=water_trap,pos=#pPos@luck=-2  
+type=structure,ID=pit_trap,pos=#pPos@luck=-2
+
+/ chests
+type=block,ID=chest,tileEntity=(Items=#chestVillageBlacksmith)@luck=0
+type=block,ID=chest,tileEntity=(Items=#chestBonusChest)@luck=1
+type=block,ID=chest,tileEntity=(Items=#chestDungeonChest)@luck=1
+type=block,ID=chest,tileEntity=(Items=#chest(contents=[(id=lucky:lucky_block_creeper,maxAmount=8,weight=10),(id=lucky:creeper_lucky_potion,maxAmount=4,weight=9),(id=diamond,maxAmount=4,weight=8),(id=emerald,maxAmount=4,weight=7),(id=lucky:creeper_lucky_sword,maxAmount=4,weight=6),(id=lucky:creeper_lucky_bow,maxAmount=4,weight=5),(id=golden_apple,maxAmount=3,weight=10),(id=golden_apple,Damage=1,maxAmount=2,weight=10)],maxTotalAmount=12))@luck=2
+
+/bouncing castle
+type=structure,ID=bouncing_castle,pos=#pPos,rotation=#pDirect@luck=0
+
+/Race
+type=structure,ID=race,posZ=#pPosZ+23,rotation=#pDirect@luck=0
+
+/Tower
+type=structure,ID=tower,posZ=#pPosZ+2,rotation=#pDirect@luck=0
+
+/Chunk
+type=structure,ID=chunk,posZ=#pPosZ+2,rotation=#pDirect@luck=0
+
+/Ruins
+type=structure,ID=ruins,posZ=#pPosZ+5,rotation=#pDirect@luck=0
+
+/Altar
+type=structure,ID=altar,posZ=#pPosZ+2,rotation=#pDirect@luck=0
+
+/End
+type=structure,ID=end,posZ=#pPosZ+2,rotation=#pDirect@luck=0
+
+/Island
+type=structure,ID=island,posZ=#pPosZ+2,rotation=#pDirect@luck=0
+
+///////////////////////////////////Potions
+/ lucky potion
+ID=potion,damage=8195,NBTTag=(CustomPotionEffects=#luckyPotionEffects,display=(Name="$e$lCreeper Potion"))@luck=2
+ID=potion,damage=8195,NBTTag=(CustomPotionEffects=#unluckyPotionEffects,display=(Name="$e$lCreeper Potion"))@luck=-1
+
+/ unlucky potion
+ID=potion,damage=16428,NBTTag=(CustomPotionEffects=#unluckyPotionEffects,display=(Name="$e$lCreeper Potion"))@luck=1
+ID=potion,damage=16428,NBTTag=(CustomPotionEffects=#luckyPotionEffects,display=(Name="$e$lCreeper Potion"))@luck=1
+
+///////////////////Random Things
+/exploding diamond
+group(ID=diamond;type=explosion,radius=8,delay=2)@luck=-2
+
+/hmmm
+ID=boat,NBTTag=(display=(Name="INVENTORY INVASION")),amount=128@luck=-1
+
+/wearables
+group(ID=skull,damage=3,amount=#rand(0,3),NBTTag=(SkullOwner=MHF_Cake,display=(Name="Wearable Cake"));ID=skull,damage=3,amount=#rand(0,3),NBTTag=(SkullOwner=MHF_TNT2,display=(Name="Wearable TNT"));ID=skull,damage=3,amount=#rand(0,3),NBTTag=(SkullOwner=MHF_Chest,display=(Name="Wearable Chest"));ID=skull,damage=3,amount=#rand(0,3),NBTTag=(SkullOwner=MHF_OakLog,display=(Name="Wearable Oak Tree"));ID=skull,damage=3,amount=#rand(0,3),NBTTag=(SkullOwner=MHF_Apple,display=(Name="Wearable Apple")))@luck=0
+
+/maker
+ID=skull,damage=3,NBTTag=(SkullOwner=craftdiamonds,display=(Name="craftdiamonds",Lore=["The Creator of this Addon!"]))@luck=0
+
+/exploding beacon
+group(ID=beacon;type=explosion,radius=10,delay=1)@luck=-2
+
+/Deceased Villager's Message
+group(type=command,ID="/tell #pName Hello, #pName. I died a long time ago, in a desperate attempt to save my village. I was slaughtered by Bob. If you ever see him, use this sword. You only have one chance, so please avenge him, not for me, but for my people...fades away",commandSender="Deceased Villager";ID=iron_sword,damage=250,NBTTag=(ench=[(id=16,lvl=127)],display=(Name=$fBob Avenger)))@luck=0
+
+/players
+ID=skull,damage=3,amount=#rand(1,4),NBTTag=(SkullOwner=#randList(craftdiamonds,PlayerInDistress,Herobrine,FuriousDestroyer,SuperGirlyGamer,coolguy4576,CaptainSparklez,AntVenom,hypixel,DanTDM,SkythekidRS,logdotzip))@luck=0
+
+/ a large amount of water
+type=command,ID=\"fill ~10 ~10 ~10 ~-10 ~ ~-10 water 0 replace air 0\"@luck=-1
+
+/ a large amount of web
+type=command,ID=\"fill ~10 ~10 ~10 ~-10 ~ ~-10 web"@luck=-1
+
+/ a large amount of iron
+type=command,ID=\"fill ~5 ~10 ~5 ~ ~2 ~ iron_ore"@luck=1
+
+/ a large amount of gold
+type=command,ID=\"fill ~5 ~10 ~5 ~ ~2 ~ gold_ore"@luck=2
+
+/ a large amount of emerald
+type=command,ID=\"fill ~5 ~10 ~5 ~- ~2 ~ emerald_ore"@luck=2
+
+/ a large amount of lapis
+type=command,ID=\"fill ~5 ~10 ~5 ~ ~2 ~ lapis_ore"@luck=2
+
+/ a large amount of redstone
+type=command,ID=\"fill ~5 ~10 ~5 ~ ~2 ~ redstone_ore"@luck=0
+
+/ a large amount of quartz
+type=command,ID=\"fill ~5 ~10 ~5 ~ ~2 ~ quartz_ore"@luck=1
+
+/ a large amount of diamond
+type=command,ID=\"fill ~5 ~10 ~5 ~ ~2 ~ diamond_ore"@luck=2
+
+/ a large amount of tnt
+type=command,ID=\"fill ~10 ~10 ~10 ~-10 ~ ~-10 tnt"@luck=-1
+
+/Flying tnt
+type=entity,ID=PrimedTnt,NBTTag=(CustomName="$#randList(6,9,a,b,c,d,e)$lTNT",CustomNameVisible=true,Value=#randList(5,20),Riding=(id=Bat,Silent=true,ActiveEffects=[(Id=14,Duration=100000,Amplifier=1,ShowParticles=false)])),amount=#rand(10,20),posOffset=#circleOffset(2,3),reinitialize=true@luck=-1
+
+/Flying minecarts
+type=entity,ID=Minecart,NBTTag=(CustomName="$#randList(6,9,a,b,c,d,e)$lHop On",CustomNameVisible=true,Value=#randList(5,20),Riding=(id=Bat,Silent=true,ActiveEffects=[(Id=14,Duration=100000,Amplifier=1,ShowParticles=false)])),amount=#rand(10,20),posOffset=#circleOffset(2,3),reinitialize=true@luck=1
+
+/random jokes
+group(ID=clock,NBTTag=(display=(Name="You're wasting your time"));ID=fish,damage=2,NBTTag=(display=(Name="I'm funny"));ID=fish,damage=3,NBTTag=(display=(Name="Oooooh!")))@luck=-1
+
+/Free Nether Star
+group(type=entity,ID=WitherBoss,NBTTag=(HealF=0);type=message,ID=$aThat was Unexpected!)@luck=2
+
+/Mounted Dragon
+type=entity,ID=EnderDragon,NBTTag=(Riding=(id=Spider)),posOffset=#circleOffset(4),amount=#rand(5,10)@luck=-2
+
+//////////////////God Items
+/god helmet
+ID=diamond_helmet,NBTTag=(AttributeModifiers=[(AttributeName="generic.maxHealth",Name="generic.maxHealth",Amount=2D,Operation=0,UUIDMost=17735,UUIDLeast=182943)],ench=[(id=0,lvl=3000),(id=1,lvl=3000),(id=3,lvl=3000),(id=4,lvl=3000),(id=5,lvl=5),(id=6,lvl=3000),(id=7,lvl=3000),(id=34,lvl=3000)],display=(Name="$9$lGod Helmet"))@luck=2
+/op chestplate
+ID=diamond_chestplate,NBTTag=(AttributeModifiers=[(AttributeName="generic.attackDamage",Name="generic.attackDamage",Amount=1.25D,Operation=1,UUIDMost=99586,UUIDLeast=108806)],ench=[(id=0,lvl=3000),(id=1,lvl=3000),(id=3,lvl=3000),(id=4,lvl=3000),(id=7,lvl=3000),(id=34,lvl=3000)],display=(Name="$9$lGod Chestplate"))@luck=2
+/op leggings
+ID=diamond_leggings,NBTTag=(AttributeModifiers=[(AttributeName="generic.knockbackResistance",Name="generic.knockbackResistance",Amount=0.5D,Operation=1,UUIDMost=12422,UUIDLeast=107283)],ench=[(id=0,lvl=3000),(id=1,lvl=3000),(id=3,lvl=3000),(id=4,lvl=3000),(id=7,lvl=3000),(id=34,lvl=3000)],display=(Name="$9$lGod Leggings"))@luck=2
+/op boots
+ID=diamond_boots,NBTTag=(AttributeModifiers=[(AttributeName="generic.movementSpeed",Name="generic.movementSpeed",Amount=2D,Operation=1,UUIDMost=38569,UUIDLeast=123794)],ench=[(id=0,lvl=3000),(id=1,lvl=3000),(id=2,lvl=3000),(id=3,lvl=3000),(id=4,lvl=3000),(id=6,lvl=3000),(id=7,lvl=3000),(id=8,lvl=3000),(id=34,lvl=3000)],display=(Name="$9$lGod Boots"))@luck=2
+/God Sword
+ID=iron_sword,NBTTag=(AttributeModifiers=[(AttributeName="generic.attackDamage",Name="generic.attackDamage",Amount=9999999999999999999999999999,Operation=0,UUIDLeast=894654,UUIDMost=2872),(AttributeName="generic.maxHealth",Name="generic.maxHealth",Amount=80,Operation=0,UUIDLeast=894654,UUIDMost=2872),(AttributeName="generic.movementSpeed",Name="generic.movementSpeed",Amount=0.8,Operation=0,UUIDLeast=894654,UUIDMost=2872)],ench=[(id=16,lvl=3000),(id=17,lvl=3000),(id=18,lvl=3000),(id=19,lvl=3000),(id=20,lvl=3000),(id=21,lvl=30),(id=34,lvl=3000)],Unbreakable=true,display=(Name="$9$lGod Sword",Lore=["Forged by the Combined Powers of Notch and Herobrines"]))@luck=2
+/God Bow
+type=item,ID=bow,NBTTag=(ench=[(id=48,lvl=3000),(id=51,lvl=3000)],display=(Name=$9$lGod Bow))@luck=2
+
+
+//End of File

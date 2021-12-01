@@ -1,0 +1,30 @@
+>surface
+/house + lucky block
+group(type=structure,ID=house;type=block,ID=lucky:lucky_block_creeper,tileEntity=(Luck=20),posX=#bPosX+1,posZ=#bPosZ-1)@chance=1000
+
+/chunk
+type=structure,ID=chunk@chance=3000
+
+/tower
+type=structure,ID=tower@chance=2000
+
+/ruins
+type=structure,ID=ruins@chance=800
+
+/island
+type=structure,ID=island@chance=4000
+
+/one block
+type=block,ID=lucky:lucky_block_creeper@chance=200
+
+>nether
+type=block,ID=lucky:lucky_block_creeper@chance=100
+
+/altar
+type=structure,ID=altar@chance=800
+
+>end
+type=block,ID=lucky:lucky_block_creeper@chance=100
+
+/end
+type=structure,ID=end@chance=800

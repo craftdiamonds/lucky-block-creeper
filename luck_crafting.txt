@@ -1,0 +1,25 @@
+/Standard Items 
+diamond=12
+diamond_block=100
+emerald=15
+emerald_block=80
+gold_ingot=10
+gold_block=60
+iron_ingot=10
+iron_block=100
+
+/lucky items
+golden_carrot=30
+golden_apple:0=40
+golden_apple:1=100
+nether_star=100
+beacon=100
+diamond_sword=50
+dirt=100
+
+/unlucky items
+rotten_flesh=-5
+spider_eye=-100
+fermented_spider_eye=-100
+poisonous_potato=-10
+fish:3=-10

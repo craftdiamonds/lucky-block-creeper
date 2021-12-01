@@ -1,0 +1,2 @@
+/craft by placing tnt in center and gunpowder around it
+ggg,glg,ggg,g,gunpowder,l,tnt

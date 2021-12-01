@@ -1,0 +1,4 @@
+block_id=lucky_block_creeper
+sword_id=creeper_lucky_sword
+bow_id=creeper_lucky_bow
+potion_id=creeper_lucky_potion
